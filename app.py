@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from datetime import datetime
 app = Flask(__name__)
 
@@ -17,6 +17,9 @@ if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
 
 
-@app.route('/test')
+@app.route('/webhook',methods = ['POST'])
 def testpage():
-    return 'This is test page'
+    return {
+        "code": "success",
+        "message": str(request.data)
+    }
