@@ -16,3 +16,7 @@ def homepage():
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
 
+
+@app.route('/test')
+def testpage():
+    return 'This is test page'
